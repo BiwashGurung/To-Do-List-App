@@ -42,3 +42,12 @@ function showTodo(filter) {
     taskBox.offsetHeight >= 300 ? taskBox.classList.add("overflow") : taskBox.classList.remove("overflow");
 }
 showTodo("all");
+function showMenu(selectedTask) {
+    let menuDiv = selectedTask.parentElement.lastElementChild;
+    menuDiv.classList.add("show");
+    document.addEventListener("click", e => {
+        if(e.target.tagName != "I" || e.target != selectedTask) {
+            menuDiv.classList.remove("show");
+        }
+    });
+}
